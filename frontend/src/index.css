@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Body defaults */
+body {
+  @apply bg-gray-50 font-sans text-gray-800;
+}
+
+/* Smooth hover transition */
+* {
+  @apply transition duration-200;
+}
+
