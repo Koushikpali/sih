@@ -11,7 +11,7 @@ export const addExperience = async (experienceData) => {
     // Detect if it's FormData
     const isFormData = experienceData instanceof FormData;
 
-    const response = await apiClient.post("/experiences", experienceData, {
+    const response = await apiClient.post("/api/experiences", experienceData, {
       headers: {
         ...authHeader(),
         "Content-Type": isFormData ? undefined : "application/json", 
