@@ -14,6 +14,7 @@ exports.awardPoints = async (userId, activityType, level = null) => {
   if (activityType === "award") points = 40;
   if (activityType === "competition") points = 20;
   if (activityType === "club_activity") points = 15;
+  if (activityType === "community_service") points = 15;
 
   let gamification = await Gamification.findOne({ userId });
   if (!gamification) gamification = new Gamification({ userId });
@@ -29,7 +30,7 @@ exports.awardPoints = async (userId, activityType, level = null) => {
 // Get gamification stats
 exports.getUserStats = async (req, res, next) => {
   try {
-    const gamification = await Gamification.findOne({ userId: req.params.userId });
+    const gamification = await Gamification.findOne({ userId: req.user.id });
     if (!gamification) return res.status(404).json({ message: "No gamification data found" });
     res.status(200).json({ success: true, gamification });
   } catch (err) {

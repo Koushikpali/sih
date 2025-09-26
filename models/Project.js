@@ -6,6 +6,11 @@ const projectSchema = new mongoose.Schema({
   description: String,
   techStack: [String],
   githubLink: String,
+  verificationStatus: {
+  type: String,
+  enum: ["pending", "verified", "rejected"],
+  default: "pending"
+},
   tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Tag" }]
 }, { timestamps: true });
 

@@ -12,3 +12,6 @@ body {
   @apply transition duration-200;
 }
 
+html, body, #root {
+  height: 100%;
+}

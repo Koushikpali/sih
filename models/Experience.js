@@ -5,10 +5,17 @@ const experienceSchema = new mongoose.Schema({
   title: String,
   type: {
     type: String,
-    enum: ["internship", "hackathon", "award", "competition", "club_activity"]
+    enum: ["internship", "hackathon", "award", "competition", "club_activity", "community_service"]
   },
   duration: String,
-  description: String
+  description: String,
+  verificationStatus: {
+  type: String,
+  enum: ["pending", "verified", "rejected"],
+  default: "pending"
+}
+
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("Experience", experienceSchema);
